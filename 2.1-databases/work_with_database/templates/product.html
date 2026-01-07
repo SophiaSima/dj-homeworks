@@ -1,11 +1,6 @@
-{% extends "base.html" %}
-
-{% load static %}
-
-{% block title %}{{ phone.name }}{% endblock %}
-
-{% block content %}
-  <div class="container">
+{% extends "base.html" %} {% load static %} {% block title %} {{ phone.name }}
+{%endblock %} {% block content %}
+<div class="container">
   <div class="header">
     <h5>
       <a href="{% url 'catalog' %}">Вернуться в каталог</a>
@@ -14,9 +9,10 @@
   </div>
 
   <div class="content">
-    <img src="{{ phone.image }}" alt="{{ phone.name }}"/>
+    <img src="{{ phone.image }}" alt="{{ phone.name }}" />
     <div>Стоимость: {{ phone.price }} ₽</div>
     <div>Дата выпуска: {{ phone.release_date }}</div>
     <div>LTE: {{ phone.lte_exists|yesno:'есть,нет' }}</div>
   </div>
-{% endblock %}
+  {% endblock %}
+</div>
