@@ -1,9 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block title %}Каталог
-книг{%endblock %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block title %} Каталог
+{%endblock%} {% block content %}
+
 <div class="container">
   <div class="header">
     <h1><a href="/books">Каталог</a></h1>
   </div>
+
   <div class="row">
     {% for book in books %}
     <div class="book col-md-4">
@@ -13,5 +15,13 @@
     </div>
     {% endfor %}
   </div>
+
+  {% if previous_book %}
+    <a href = '{% url 'books' %}{{ previous_book }}'> <buttom> ⟵ {{ previous_book }} </buttom></a> 
+  {% endif %}
+  {% if next_book %}
+    <a href = '{% url 'books' %}{{ next_book }}'> <buttom> {{ next_book }} ⟶ </buttom></a>
+  {% endif %}
 </div>
+
 {% endblock %}
